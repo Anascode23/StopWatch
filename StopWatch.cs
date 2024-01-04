@@ -1,15 +1,17 @@
 public class StopWatch
 {
-    public DateTime Start() { 
+    public DateTime Start()
+    {
         var start = DateTime.Now;
-       
-        System.Console.WriteLine("timer started");
+
+        Console.WriteLine("timer started");
         return start;
     }
-    public void Stop() {
-         var stop =DateTime.Now;
-         var timespan = Start() - stop; 
-         System.Console.WriteLine(timespan.TotalNanoseconds);
-        System.Console.WriteLine("timer stopped");
-     }
-} 
+    public void Stop(DateTime start)
+    {
+        var stop = DateTime.Now;
+        var timespan = stop - start;
+        Console.WriteLine("Elapsed time: " + timespan.TotalMilliseconds);
+        Console.WriteLine("timer stopped");
+    }
+}
