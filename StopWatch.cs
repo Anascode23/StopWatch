@@ -1,17 +1,32 @@
 public class StopWatch
 {
-    public DateTime Start()
-    {
-        var start = DateTime.Now;
+    public DateTime start;
+    public DateTime stop;
+    public bool running;
 
-        Console.WriteLine("timer started");
-        return start;
-    }
-    public void Stop(DateTime start)
+    public void Start()
     {
-        var stop = DateTime.Now;
-        var timespan = stop - start;
-        Console.WriteLine("Elapsed time: " + timespan.TotalMilliseconds);
+        start = DateTime.Now;
+
+        if (running == false)
+        {
+            running = true;
+            Console.WriteLine("timer started");
+        }
+        else
+        {
+            throw new InvalidOperationException();
+        }
+    }
+
+
+
+    public void Stop()
+    {
+        stop = DateTime.Now;
+        var timespan = stop - start; //debugg to see how Start variable works
+        running = false;
+        Console.WriteLine("Elapsed time: " + timespan.TotalSeconds);
         Console.WriteLine("timer stopped");
     }
 }

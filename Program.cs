@@ -1,4 +1,16 @@
-﻿var stopwatch = new StopWatch();
-var start = stopwatch.Start();
-Console.WriteLine("Waiting to stop the timer");
-stopwatch.Stop(start);
+﻿Console.WriteLine("Start the timer type start and type stop to end timer: ");
+
+var stopwatch = new StopWatch();
+while (true)
+{
+    var userinput = Console.ReadLine();
+    if (userinput == "start")
+        stopwatch.Start();
+
+
+    if (userinput == "stop")
+        stopwatch.Stop();
+
+}
+
+
