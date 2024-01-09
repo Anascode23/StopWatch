@@ -1,16 +1,13 @@
 public class StopWatch
 {
-    public DateTime start;
-    public DateTime stop;
-    public bool running;
-
+    private bool _running;
     public void Start()
     {
-        start = DateTime.Now;
+        var start = DateTime.Now;
 
-        if (running == false)
+        if (_running == false)
         {
-            running = true;
+            _running = true;
             Console.WriteLine("timer started");
         }
         else
@@ -21,11 +18,11 @@ public class StopWatch
 
 
 
-    public void Stop()
+    public void Stop(DateTime start)
     {
-        stop = DateTime.Now;
-        var timespan = stop - start; //debugg to see how Start variable works
-        running = false;
+        var stop = DateTime.Now;
+        var timespan = stop - start;
+        _running = false;
         Console.WriteLine("Elapsed time: " + timespan.TotalSeconds);
         Console.WriteLine("timer stopped");
     }
